@@ -50,3 +50,4 @@ examples/vendor/
 
 # Autoload dump
 /vendor_autoload.php
+.github/copilot-instructions.md
