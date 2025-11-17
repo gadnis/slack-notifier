@@ -35,25 +35,6 @@ Or if using a local package:
 
 ---
 
-## 📁 Directory Structure
-
-```
-src/Slack/
-    ArrayThrottleStorage.php
-    ContextProviderInterface.php
-    DefaultContextProvider.php
-    SlackClient.php
-    SlackFormatter.php
-    SlackMessage.php
-    SlackThrottle.php
-    ThrottleStorageInterface.php
-    WebhookProviderInterface.php
-```
-
-Each class and interface is in its own file — fully PSR‑4 compliant.
-
----
-
 ## 🧩 Basic Usage
 
 ### 1. Implement a Webhook Provider

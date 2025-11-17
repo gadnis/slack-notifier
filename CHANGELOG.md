@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format follows [Semantic Versioning](https://semver.org/).
 
+## [1.1.1] - 2025-11-17
+### Fixed
+- Corrected directory structure: all moved into `src/`.
+- Updated documentation to reflect correct namespace and path structure.
+
+### Added
+- `ArrayThrottleStorage` for in-memory throttling within a single request (mainly for testing or fallback).
+
+### Improved
+- Cleaner package layout and consistent PSR-4 autoloading.
+- Improved example documentation to match new structure.
+
 
 ## [1.1.0] - 2025-11-17
 ### Added
