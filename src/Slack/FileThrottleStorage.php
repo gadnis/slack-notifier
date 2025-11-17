@@ -1,6 +1,6 @@
 <?php
 
-namespace Edbox\Slack\Storage;
+namespace Edbox\Slack;
 
 use Edbox\Slack\ThrottleStorageInterface;
 
