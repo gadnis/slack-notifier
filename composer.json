@@ -2,7 +2,6 @@
   "name": "edbox/slack-notifier",
   "description": "PSR-4 Slack Webhook Notifier with formatting, throttling, and context providers.",
   "type": "library",
-  "version": "1.0.0",
   "license": "proprietary",
   "autoload": {
     "psr-4": {
