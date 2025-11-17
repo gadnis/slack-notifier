@@ -3,7 +3,7 @@ namespace Edbox\Slack;
 
 use Psr\Log\LoggerInterface;
 
-class SlackClient
+class SlackClient implements SlackNotifierInterface
 {
     private WebhookProviderInterface $webhookProvider;
     private LoggerInterface $logger;
@@ -25,7 +25,51 @@ class SlackClient
         $this->contextProvider = $contextProvider;
     }
 
-    public function send(SlackMessage $msg): void
+    /**
+     * {@inheritdoc}
+     */
+    public function info(string $message, array $context = []): void
+    {
+        $this->send(SlackMessage::info($message)->withContext($context));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function warning(string $message, array $context = []): void
+    {
+        $this->send(SlackMessage::warning($message)->withContext($context));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function error(string $message, array $context = []): void
+    {
+        $this->send(SlackMessage::error($message)->withContext($context));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function notify(string $level, string $message, array $context = []): void
+    {
+        $level = strtolower($level);
+
+        $allowed = ['info', 'warning', 'error'];
+
+        if (!in_array($level, $allowed, true)) {
+            $level = 'error';
+        }
+
+        $this->{$level}($message, $context);
+    }
+
+    /**
+     * @param SlackMessage $msg
+     * @return void
+     */
+    private function send(SlackMessage $msg): void
     {
         $url = $this->webhookProvider->getWebhookUrl();
         if (!$url) {
